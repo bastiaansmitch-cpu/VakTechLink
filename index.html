@@ -945,28 +945,41 @@
       </div>
 
       <div class="form-card fade-up">
-        <div class="form-header">
-          <div class="form-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+        <div id="form-content">
+          <div class="form-header">
+            <div class="form-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+            </div>
+            <div>
+              <div class="form-title">Stuur een aanvraag</div>
+              <div class="form-subtitle">We reageren zo snel mogelijk!</div>
+            </div>
           </div>
-          <div>
-            <div class="form-title">Stuur een aanvraag</div>
-            <div class="form-subtitle">We reageren zo snel mogelijk!</div>
+          <div class="form-row">
+            <div class="form-group"><label>Naam *</label><input type="text" id="f-naam" name="naam" placeholder="Voor- en achternaam"></div>
+            <div class="form-group"><label>Telefoonnummer *</label><input type="tel" id="f-tel" name="telefoonnummer" placeholder="+31 6 00 000 000"></div>
           </div>
+          <div class="form-row">
+            <div class="form-group"><label>Adres</label><input type="text" id="f-adres" name="adres" placeholder="Straat + huisnummer"></div>
+            <div class="form-group"><label>Woonplaats</label><input type="text" id="f-plaats" name="woonplaats" placeholder="Stad"></div>
+          </div>
+          <div class="form-group"><label>E-mailadres *</label><input type="email" id="f-email" name="email" placeholder="jouw@email.nl"></div>
+          <div class="form-group"><label>Vertel ons je wens *</label><textarea id="f-aanvraag" name="aanvraag" placeholder="Beschrijf wat je wilt laten doen. Niks is te gek!"></textarea></div>
+          <button class="form-submit" id="form-btn" onclick="submitForm(event)">Aanvraag versturen →</button>
+          <div class="form-error" id="form-error">✗ Er ging iets mis. Probeer het opnieuw of bel ons op <a href="tel:0631558448" style="color:#c62828;font-weight:700">06 31 55 84 48</a>.</div>
         </div>
-        <div class="form-row">
-          <div class="form-group"><label>Naam *</label><input type="text" id="f-naam" name="naam" placeholder="Voor- en achternaam"></div>
-          <div class="form-group"><label>Telefoonnummer *</label><input type="tel" id="f-tel" name="telefoonnummer" placeholder="+31 6 00 000 000"></div>
+
+        <div id="form-thankyou" style="display:none;text-align:center;padding:52px 24px;">
+          <div style="width:80px;height:80px;background:#FDF8E8;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;border:3px solid #F5C21B;">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:40px;height:40px;color:#F5C21B"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+          </div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:2.2rem;font-weight:900;color:#1F1F1F;line-height:1;margin-bottom:14px;">Bedankt voor<br>je aanvraag!</div>
+          <p style="font-size:1rem;color:#4A4A4A;line-height:1.7;margin-bottom:32px;max-width:380px;margin-left:auto;margin-right:auto;">We nemen zo snel mogelijk contact met je op — meestal binnen een paar uur. Je hoort van ons!</p>
+          <a href="https://wa.me/31631558448?text=Hallo%20VakTechLink%2C%20ik%20heb%20zojuist%20een%20aanvraag%20gedaan" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:white;padding:13px 24px;border-radius:8px;font-weight:700;font-size:0.95rem;text-decoration:none;">
+            <svg viewBox="0 0 24 24" fill="white" style="width:20px;height:20px"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+            Of app ons via WhatsApp
+          </a>
         </div>
-        <div class="form-row">
-          <div class="form-group"><label>Adres</label><input type="text" id="f-adres" name="adres" placeholder="Straat + huisnummer"></div>
-          <div class="form-group"><label>Woonplaats</label><input type="text" id="f-plaats" name="woonplaats" placeholder="Stad"></div>
-        </div>
-        <div class="form-group"><label>E-mailadres *</label><input type="email" id="f-email" name="email" placeholder="jouw@email.nl"></div>
-        <div class="form-group"><label>Vertel ons je wens *</label><textarea id="f-aanvraag" name="aanvraag" placeholder="Beschrijf wat je wilt laten doen. Niks is te gek!"></textarea></div>
-        <button class="form-submit" onclick="submitForm(event)">Aanvraag versturen →</button>
-        <div class="form-success" id="form-success">✓ Bedankt! We nemen zo snel mogelijk contact met je op.</div>
-        <div class="form-error" id="form-error">✗ Er ging iets mis. Probeer het opnieuw of bel ons direct.</div>
       </div>
 
       <div class="contact-trust">
@@ -1054,7 +1067,7 @@
       return;
     }
 
-    const btn = document.querySelector('.form-submit');
+    const btn = document.getElementById('form-btn');
     btn.disabled = true;
     btn.textContent = 'Versturen...';
 
@@ -1075,20 +1088,14 @@
       });
 
       if(response.ok) {
-        document.getElementById('form-success').style.display = 'block';
-        document.getElementById('form-error').style.display = 'none';
-        btn.style.opacity = '0.5';
-        // Reset form
-        ['f-naam','f-tel','f-adres','f-plaats','f-email','f-aanvraag'].forEach(id => {
-          const el = document.getElementById(id);
-          el.value = '';
-        });
+        // Formulier verbergen, bedankt-scherm tonen
+        document.getElementById('form-content').style.display = 'none';
+        document.getElementById('form-thankyou').style.display = 'block';
       } else {
         throw new Error('Server error');
       }
     } catch(err) {
       document.getElementById('form-error').style.display = 'block';
-      document.getElementById('form-success').style.display = 'none';
       btn.disabled = false;
       btn.textContent = 'Aanvraag versturen →';
     }
